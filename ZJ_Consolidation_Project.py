@@ -102,3 +102,4 @@ if __name__ == "__main__":
 
     # Play the game
     game.play_game()
+    
