@@ -3,8 +3,12 @@ import random
 
 def roll_dice():
     """Roll three dice and return the result as a list."""
-    return [random.randint(1, 6) for _ in range(3)]
-
+    dice_list = [random.randint(1, 6) for _ in range(3)]
+    return dice_list
+## tests
+# random.seed(42)
+# roll_dice() # gets 6, 1, 1
+# roll_dice() # gets 6, 3, 2
 
 def count_occurrences(dice, value):
     """Count the occurrences of a value in a list."""
