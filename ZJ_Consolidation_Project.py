@@ -1,5 +1,5 @@
 import random
-
+    
 
 def roll_dice():
     """Roll three dice and return the result as a list."""
@@ -7,15 +7,13 @@ def roll_dice():
     return dice_list
 # # tests
 # random.seed(42)
-# roll_dice() # gets 6, 1, 1
+# roll_dice() # gets 6, 1, f1
 # roll_dice() # gets 6, 3, 2
 
 def count_occurrences(dice, value):
     """Count the occurrences of a value in a list."""
     return sum(1 for x in dice if x == value)
-dice = [2, 2, 2]
-value = 2
-count_occurrences()
+
 
 def play_turn(player):
     """
@@ -63,17 +61,22 @@ def play_turn(player):
 
 
 
-def initial(self, target_score):
-        """
-        Initialize the game with the target score.
+def TupleOutDiceGame(target_score):
+    """
+    Initialize the game with the target score.
 
-        Args:
-            target_score (int): The score a player needs to reach to win.
-        """
-        self.target_score = target_score
-        self.players = []
-        self.scores = {}
-        self.current_player_index = 0
+    Args:
+        target_score (int): The score a player needs to reach to win.
+
+    Returns:
+        dict: A dictionary containing game state information.
+    """
+    return {
+        'target_score': target_score,
+        'players': [],
+        'scores': {},
+        'current_player_index': 0
+    }
 
 def add_player(self, player_name):
         """Add a player to the game."""
@@ -96,7 +99,7 @@ def play_game(self):
 
 # Main program
 
-def game(target_score)
+
 
 target_score = int(input("Enter the target score to win the game: "))
 number_of_players = int(input("Enter the number of players: "))
@@ -106,7 +109,7 @@ game = TupleOutDiceGame(target_score)
     # Adding players
 for i in range(number_of_players):
     player_name = input("Enter name for player " + str(i + 1) + ": ")
-    game.add_player(player_name)
+    add_player(game, player_name)
 
     # Play the game
     game.play_game()
