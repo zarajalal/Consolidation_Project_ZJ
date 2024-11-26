@@ -1,6 +1,6 @@
 # Consolidation_Project_ZJ
  
-# This Python project uses a simple dice game where players take turns rolling three dice. The objective is to accumulate points by rolling the dice and making strategic decisions on whether to keep or re-roll certain dice. The first player to reach a target score wins the game.
+This Python project uses a simple dice game where players take turns rolling three dice. The objective is to accumulate points by rolling the dice and making strategic decisions on whether to keep or re-roll certain dice. The first player to reach a target score wins the game.
 
 # Features
 - Roll three dice and display the results.
@@ -36,3 +36,10 @@ play_game(target_score, players, scores, current_player_index)
 - each player must decide if they want to re-roll the unfix dice 
 - if player chooses not to re-roll, round continues to next player
 - game ends once player achieves target score. 
+
+# Steps I took to play game in terminal:
+1. (base) zarajalaluddin@Zaras-MBP ~ % cd desktop
+2. (base) zarajalaluddin@Zaras-MBP desktop % cd Python_Code
+3. (base) zarajalaluddin@Zaras-MBP Python_Code % cd Consolidation_Project
+4. (base) zarajalaluddin@Zaras-MBP Consolidation_Project % cd Consolidation_Project_ZJ
+5. (base) zarajalaluddin@Zaras-MBP Consolidation_Project_ZJ % python  ZJ_Consolidation_Project.py
