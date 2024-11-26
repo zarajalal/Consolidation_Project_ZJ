@@ -5,20 +5,20 @@ def roll_dice():
     """Roll three dice and return the result as a list."""
     dice_list = [random.randint(1, 6) for _ in range(3)]
     return dice_list
-# # tests
+# tests
 # random.seed(42)
-roll_dice() # gets 6, 1, 1
+# roll_dice() # gets 6, 1, 1
 # roll_dice() # gets 6, 3, 2
 
 def count_occurrences(dice, value):
     """Count the occurrences of a value in a list."""
     count = sum(1 for x in dice if x == value)
     return count
-random.seed(42)
-roll_dice()
-dice = [6, 1, 1]
-value = 2 
-count_occurrences([6 , 1 ,1 ] , [2])
+# test
+# dice = [6, 1, 1]
+# value = 1 
+# occurrences = count_occurrences(dice, value)
+# print("The value", value, "appears" ,occurrences, "times in the dice list.")
 
 def play_turn(player):
     """
@@ -63,25 +63,20 @@ def play_turn(player):
     score = sum(dice)
     print(player + " stops with a score of " + str(score) + " for this turn.")
     return score
-
+# tests
+# player_name = "Alice" 
+# turn_score = play_turn(player_name) 
+# print(player_name,"scored " , turn_score, "points this turn.")
 
 
 def TupleOutDiceGame(target_score):
-    """
-    Initialize the game with the target score.
-
-    Args:
-        target_score (int): The score a player needs to reach to win.
-
-    Returns:
-        dict: A dictionary containing game state information.
-    """
     return {
         'target_score': target_score,
         'players': [],
         'scores': {},
         'current_player_index': 0
     }
+
 
 def add_player(self, player_name):
         """Add a player to the game."""
