@@ -1,5 +1,5 @@
 import random
-    
+
 
 def roll_dice():
     """Roll three dice and return the result as a list."""
@@ -7,13 +7,18 @@ def roll_dice():
     return dice_list
 # # tests
 # random.seed(42)
-# roll_dice() # gets 6, 1, f1
+roll_dice() # gets 6, 1, 1
 # roll_dice() # gets 6, 3, 2
 
 def count_occurrences(dice, value):
     """Count the occurrences of a value in a list."""
-    return sum(1 for x in dice if x == value)
-
+    count = sum(1 for x in dice if x == value)
+    return count
+random.seed(42)
+roll_dice()
+dice = [6, 1, 1]
+value = 2 
+count_occurrences([6 , 1 ,1 ] , [2])
 
 def play_turn(player):
     """
