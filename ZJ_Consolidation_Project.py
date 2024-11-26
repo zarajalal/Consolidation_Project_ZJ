@@ -5,7 +5,7 @@ def roll_dice():
     """Roll three dice and return the result as a list."""
     dice_list = [random.randint(1, 6) for _ in range(3)]
     return dice_list
-## tests
+# # tests
 # random.seed(42)
 # roll_dice() # gets 6, 1, 1
 # roll_dice() # gets 6, 3, 2
@@ -13,7 +13,9 @@ def roll_dice():
 def count_occurrences(dice, value):
     """Count the occurrences of a value in a list."""
     return sum(1 for x in dice if x == value)
-
+dice = [2, 2, 2]
+value = 2
+count_occurrences()
 
 def play_turn(player):
     """
@@ -60,8 +62,8 @@ def play_turn(player):
     return score
 
 
-class TupleOutDiceGame:
-    def __init__(self, target_score):
+
+def initial(self, target_score):
         """
         Initialize the game with the target score.
 
@@ -73,12 +75,12 @@ class TupleOutDiceGame:
         self.scores = {}
         self.current_player_index = 0
 
-    def add_player(self, player_name):
+def add_player(self, player_name):
         """Add a player to the game."""
         self.players.append(player_name)
         self.scores[player_name] = 0
 
-    def play_game(self):
+def play_game(self):
         """Play the game until a player reaches the target score."""
         while max(self.scores.values()) < self.target_score:
             player = self.players[self.current_player_index]
@@ -93,16 +95,18 @@ class TupleOutDiceGame:
 
 
 # Main program
-if __name__ == "__main__":
-    target_score = int(input("Enter the target score to win the game: "))
-    number_of_players = int(input("Enter the number of players: "))
 
-    game = TupleOutDiceGame(target_score)
+def game(target_score)
+
+target_score = int(input("Enter the target score to win the game: "))
+number_of_players = int(input("Enter the number of players: "))
+
+game = TupleOutDiceGame(target_score)
 
     # Adding players
-    for i in range(number_of_players):
-        player_name = input("Enter name for player " + str(i + 1) + ": ")
-        game.add_player(player_name)
+for i in range(number_of_players):
+    player_name = input("Enter name for player " + str(i + 1) + ": ")
+    game.add_player(player_name)
 
     # Play the game
     game.play_game()
