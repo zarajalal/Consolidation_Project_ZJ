@@ -72,7 +72,8 @@ def play_turn(player):
 
 
 #Start of game stats
-def initialize_game(target_score):
+
+def initialize_game(target_score, number_of_players):
     """
     Initialize the game with the target score.
 
@@ -80,7 +81,10 @@ def initialize_game(target_score):
         target_score (int): The score a player needs to reach to win.
     """
     players = []
-    scores = {}
+    for i in range(number_of_players):
+        player_name = input(f"Enter name for player {i + 1}: ")
+        players.append(player_name)
+    scores = {player: 0 for player in players}
     current_player_index = 0
     return target_score, players, scores, current_player_index
 # tests
@@ -105,16 +109,20 @@ def add_player(players, scores, player_name):
 #Game play for scores
 def play_game(target_score, players, scores, current_player_index):
     """Play the game until a player reaches the target score."""
-    while max(scores.values()) < target_score:
+    num_players = len(players)    
+    while True:
+        if current_player_index >= num_players or current_player_index < 0:
+            print("Error: current_player_index is out of range.")
+            current_player_index = 0  # Reset to first player instead of breaking
         player = players[current_player_index]
-        print("\n" + player + "'s turn:")
+        print("\n{player}'s turn:")
         turn_score = play_turn(player)
         scores[player] += turn_score
-        print(player + "'s total score: " + str(scores[player]))
+        print({player} , "'s total score:" , {scores[player]})
         if scores[player] >= target_score:
-            print(player + " wins the game with a total score of " + str(scores[player]) + "!")
+            print("{player} wins the game with a total score of {scores[player]}!")
             break
-        current_player_index = (current_player_index + 1) % len(players)
+        current_player_index = (current_player_index + 1) % num_players
 # target_score = 20
 # players = ["Alice", "Bob", "Charlie"]
 # scores = {player: 0 for player in players}
@@ -123,17 +131,20 @@ def play_game(target_score, players, scores, current_player_index):
 
 #Game start main 
 
-
-
+# Input scores & players
 target_score = int(input("Enter the target score to win the game: "))
 number_of_players = int(input("Enter the number of players: "))
 
-game = initialize_game(target_score)
 
-    # Adding players
-for i in range(number_of_players):
-    player_name = input("Enter name for player " + str(i + 1) + ": ")
-    add_player(game, player_name)
 
-    # Play the game
-play_game(target_score, players, scores, current_player_index)    
+# Adding players
+def add_players(game, number_of_players):
+    for i in range(number_of_players):
+        player_name = input("Enter name for player {i + 1}: ")
+        game.add_player(player_name)
+
+# Initialize game state
+target_score, players, scores, current_player_index = initialize_game(target_score, number_of_players)
+
+# Start playing the game
+play_game(target_score, players, scores, current_player_index)
