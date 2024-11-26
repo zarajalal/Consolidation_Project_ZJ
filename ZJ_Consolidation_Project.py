@@ -115,12 +115,12 @@ def play_game(target_score, players, scores, current_player_index):
             print("Error: current_player_index is out of range.")
             current_player_index = 0  # Reset to first player instead of breaking
         player = players[current_player_index]
-        print("\n{player}'s turn:")
+        print({player} , "'s turn:")
         turn_score = play_turn(player)
         scores[player] += turn_score
         print({player} , "'s total score:" , {scores[player]})
         if scores[player] >= target_score:
-            print("{player} wins the game with a total score of {scores[player]}!")
+            print({player} , "wins the game with a total score of" , {scores[player]} , "!")
             break
         current_player_index = (current_player_index + 1) % num_players
 # target_score = 20
