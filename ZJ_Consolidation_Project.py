@@ -1,4 +1,5 @@
 import random
+import time
 
 #Create roll dice
 def roll_dice():
