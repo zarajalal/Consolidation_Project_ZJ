@@ -38,10 +38,6 @@ def play_turn(player):
 
     start_time = time.time()
     while True:
-        if (time.time() - start_time) > 10:
-            print("Times up! You took too long. Please play your turn in under 10 seconds.")
-            exit()
-
         if dice[0] == dice[1] == dice[2]:
             print("Tuple out! You rolled three of a kind.")
             return 0
