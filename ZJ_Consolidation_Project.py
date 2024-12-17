@@ -36,7 +36,12 @@ def play_turn(player):
     dice = roll_dice()
     print(player + " rolls: " + str(dice))
 
+    start_time = time.time()
     while True:
+        if (time.time() - start_time) > 10:
+            print("Times up! You took too long. Please play your turn in under 10 seconds.")
+            exit()
+
         if dice[0] == dice[1] == dice[2]:
             print("Tuple out! You rolled three of a kind.")
             return 0
@@ -64,7 +69,9 @@ def play_turn(player):
         print("New roll: " + str(dice))
 
     score = sum(dice)
+    end_time = time.time() 
     print(player + " stops with a score of " + str(score) + " for this turn.")
+    print("The time taken for this turn:", end_time - start_time , "seconds.") #Added specialty feature 
     return score
 # tests
 # player_name = "Alice" 
@@ -133,7 +140,7 @@ def play_game(target_score, players, scores, current_player_index):
 #Game start main 
 
 # Input scores & players
-target_score = int(input("Enter the target score to win the game: "))
+target_score = int(input("Enter the target score to win the game: "))    
 number_of_players = int(input("Enter the number of players: "))
 
 
