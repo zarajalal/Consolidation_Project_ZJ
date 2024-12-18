@@ -4,6 +4,7 @@ This Python project uses a simple dice game where players take turns rolling thr
 
 # Features
 - Roll three dice and display the results.
+- Sleep time in between dice rolls to simulate real-life dice roll.
 - Count occurrences of specific values in the rolled dice.
 - Allow players to keep or re-roll certain dice based on their strategy.
 - Track scores for multiple players until one reaches the target score.
