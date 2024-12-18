@@ -6,6 +6,7 @@ import time
 def roll_dice():
     """Roll three dice and return the result as a list."""
     dice_list = [random.randint(1, 6) for _ in range(3)]
+    time.sleep(5) #simulate dice rolling time
     return dice_list
 # tests
 # random.seed(42)
