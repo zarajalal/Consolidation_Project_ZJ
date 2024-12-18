@@ -1,12 +1,13 @@
 import random
 import time
-
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 #Create roll dice
 def roll_dice():
     """Roll three dice and return the result as a list."""
     dice_list = [random.randint(1, 6) for _ in range(3)]
-    time.sleep(5) #simulate dice rolling time
+    time.sleep(2) #simulate dice rolling
     return dice_list
 # tests
 # random.seed(42)
@@ -159,3 +160,11 @@ def add_players(game, number_of_players):
 target_score, players, scores, current_player_index = initialize_game(target_score, number_of_players)
 
 play_game(target_score, players, scores, current_player_index)
+
+# Visualize final scores
+plt.figure(figsize=(10, 6))
+sns.barplot(x=list(scores.keys()), y=list(scores.values()))
+plt.title('Final Scores')
+plt.xlabel('Players')
+plt.ylabel('Score')
+plt.show()
