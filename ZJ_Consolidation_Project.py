@@ -2,6 +2,7 @@ import random
 import time
 import seaborn as sns
 import matplotlib.pyplot as plt
+import pandas as pd
 
 #Create roll dice
 def roll_dice():
@@ -115,6 +116,8 @@ def add_player(players, scores, player_name):
 #Game play for scores
 def play_game(target_score, players, scores, current_player_index):
     """Play the game until a player reaches the target score."""
+    score_history = []
+
     num_players = len(players)    
     while True:
         if current_player_index >= num_players or current_player_index < 0:
@@ -124,11 +127,16 @@ def play_game(target_score, players, scores, current_player_index):
         print({player} , "'s turn:")
         turn_score = play_turn(player)
         scores[player] += turn_score
-        print({player} , "'s total score:" , {scores[player]})
+        score_history.append({'player': player, 'score': scores[player]})
+
+        print(f"{player} 's total score: {scores[player]}")
+
         if scores[player] >= target_score:
             print({player} , "wins the game with a total score of" , {scores[player]} , "!")
-            return scores
+            break
         current_player_index = (current_player_index + 1) % num_players
+    print("Score History:", score_history)
+    return scores, score_history
 # target_score = 20
 # players = ["Alice", "Bob", "Charlie"]
 # scores = {player: 0 for player in players}
@@ -153,13 +161,25 @@ def add_players(game, number_of_players):
 target_score, players, scores, current_player_index = initialize_game(target_score, number_of_players)
 
 # Start playing the game
-play_game(target_score, players, scores, current_player_index)
+final_scores , score_history = play_game(target_score, players, scores, current_player_index)
 
-final_scores = play_game(target_score, players, scores, current_player_index)
+# final_scores = play_game(target_score, players, scores, current_player_index)
+
+#Data frame
+frame_scores = pd.DataFrame(score_history)
+frame_final_scores = pd.DataFrame(final_scores.items(), columns=['Player', 'Score'])
+
+#Plot scores during game
+plt.figure(figsize=(10, 6))
+sns.lineplot(data = frame_scores, x=range(len(frame_scores)), y='scores', hue='player', marker='o')
+plt.title('Players scores ovet time')
+plt.xlabel('Turns')
+plt.ylabel('Scores')
+plt.show()
 
 #Create bar plot
 plt.figure(figsize=(10, 6))
-sns.barplot(x=list(final_scores.keys()), y=list(final_scores.values()))
+sns.barplot(x='Player', y="Score", data=frame_final_scores)
 plt.title("Final Scores")
 plt.xlabel("Players")
 plt.ylabel("Scores")
