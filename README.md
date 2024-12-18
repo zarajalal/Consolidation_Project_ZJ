@@ -7,6 +7,8 @@ This Python project uses a simple dice game where players take turns rolling thr
 - Count occurrences of specific values in the rolled dice.
 - Allow players to keep or re-roll certain dice based on their strategy.
 - Track scores for multiple players until one reaches the target score.
+- Calculate the time tracking for each turn
+
 
 # Functions: 
 roll_dice()
@@ -27,19 +29,52 @@ add_player(players, scores, player_name)
 play_game(target_score, players, scores, current_player_index)
 - Controls the flow of the game until one player reaches or exceeds the target score.
 
-# Initial input for game:
-- The target score needed to win the game.
-- The number of players participating in the game.
-- Each player's name.
 
-# Steps of game
-- each player must decide if they want to re-roll the unfix dice 
-- if player chooses not to re-roll, round continues to next player
-- game ends once player achieves target score. 
+# How to play:
+1. Run the script.
+2. Enter the target score to win the game.
+3. Specify the number of players.
+4. Enter names for each player.
+5. Follow the prompts to play each turn:
+    1. Roll the dice
+    2. Choose to re-roll unfixed dice or keep your current roll
+    3. Accumulate points
+6. The game ends when a player reaches or exceeds the target score.
 
-# Steps I took to play game in terminal:
-1. (base) zarajalaluddin@Zaras-MBP ~ % cd desktop
-2. (base) zarajalaluddin@Zaras-MBP desktop % cd Python_Code
-3. (base) zarajalaluddin@Zaras-MBP Python_Code % cd Consolidation_Project
-4. (base) zarajalaluddin@Zaras-MBP Consolidation_Project % cd Consolidation_Project_ZJ
-5. (base) zarajalaluddin@Zaras-MBP Consolidation_Project_ZJ % python  ZJ_Consolidation_Project.py
+# How to run:
+- save/download python script
+- enter: ZJ_Consolidation_Project.py in terminal
+
+Example play:
+Enter the target score to win the game: 20
+Enter the number of players: 2
+Enter name for player 1: P1
+Enter name for player 2: P2
+{'P1'} 's turn:
+P1 rolls: [6, 3, 5]
+Fixed dice: [], Unfixed dice: [6, 3, 5]
+Do you want to re-roll the unfixed dice? (yes/no): no
+P1 stops with a score of 14 for this turn.
+The time taken for this turn: 3.29961895942688 seconds.
+P1 's total score: 14
+{'P2'} 's turn:
+P2 rolls: [4, 6, 6]
+Fixed dice: [6, 6], Unfixed dice: [4]
+Do you want to re-roll the unfixed dice? (yes/no): yes
+New roll: [6, 6, 3]
+Fixed dice: [6, 6], Unfixed dice: [3]
+Do you want to re-roll the unfixed dice? (yes/no): no
+P2 stops with a score of 15 for this turn.
+The time taken for this turn: 4.541433811187744 seconds.
+P2 's total score: 15
+{'P1'} 's turn:
+P1 rolls: [5, 4, 1]
+Fixed dice: [], Unfixed dice: [5, 4, 1]
+Do you want to re-roll the unfixed dice? (yes/no): yes
+New roll: [2, 4, 1]
+Fixed dice: [], Unfixed dice: [2, 4, 1]
+Do you want to re-roll the unfixed dice? (yes/no): no
+P1 stops with a score of 7 for this turn.
+The time taken for this turn: 4.919853210449219 seconds.
+P1 's total score: 21
+{'P1'} wins the game with a total score of {21} !
